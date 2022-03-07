@@ -1,4 +1,10 @@
-h1 {
-    font-size: 5em;
-    color: white;
+.Articles button {
+  margin: 10px;
+}
+
+.Articles #btn-translate {
+  align-self: flex-start;
+  left: 10px;
+  top: 10px;
+  position: absolute;
 }

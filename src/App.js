@@ -6,11 +6,11 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { Start } from './features/start/Start';
 import { Burger } from './features/burger/Burger';
 import { Articles } from './features/articles/Articles';
-import { About } from './features/about/About';
+import { Stats } from './features/stats/Stats';
 import './App.css';
 
 function App() {
-  const show = useSelector(state => state.burger.value)
+  const show = useSelector(state => state.burger.value);
 
   return (
     <BrowserRouter>
@@ -18,12 +18,12 @@ function App() {
       <nav className={'nav col' + (show ? ' hide-right' :  '')}>
         <Link to="/">Start</Link>
         <Link to="/articles">Articles</Link>
-        <Link to="/about">About</Link>
+        <Link to="/stats">Stats</Link>
       </nav>
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/articles" element={<Articles />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/stats" element={<Stats />} />
       </Routes>
     </BrowserRouter>
   );

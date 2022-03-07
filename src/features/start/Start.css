@@ -1,4 +1,4 @@
-h1 {
-    font-size: 5em;
-    color: white;
+.Start h1, .Start h2 {
+  height: 1em;
+  margin: 0.5em;
 }

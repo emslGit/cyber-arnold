@@ -1,0 +1,15 @@
+.Stats button {
+  margin-top: 2em;
+  align-self: flex-end;
+}
+
+.Stats table {
+  width: 100%;
+  font-size: 1.2em;
+  color: white;
+  text-align: left;
+}
+
+.Stats table td:first-of-type {
+  width: 90%;
+}

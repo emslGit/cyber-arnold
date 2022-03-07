@@ -1,47 +1,116 @@
 a {
-    margin: 1em;
-    text-decoration: none;
-    color: white;
+  margin: 1em;
+  text-decoration: none;
+  color: white;
 }
 
 a:hover {
-    transition: 400ms;
-    color: #e94fe5;
+  transition: 400ms;
+  color: #e94fe5;
+}
+
+button.btn-standard, button.btn-small {
+  color: #111;
+  background-color: #e94fe5;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  transition: 400ms;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+
+button.btn-standard:hover, button.btn-small:hover {
+  cursor: pointer;
+}
+
+button.btn-standard {
+  font-size: 1em;
+  padding: 8px 20px;
+}
+
+button.btn-small {
+  font-size: 0.6em;
+  padding: 5px 10px;
+}
+
+button:hover {
+  background-color: white;
+}
+
+h1, h2, h3 {
+  color: white;
+  font-weight: bold;
+  margin: 1em 0em;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.5em;
 }
 
 .bg {
-    height: 100vh;
-    width: 100vw;
-    background: url('assets/bg.jpg');
-    background-size: cover;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: url('assets/bg.jpg');
+  background-size: cover;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+span.wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2em 3em 3em 3em;
+  border-radius: 2px;
+  width: 32%;
+  height: 28%;
+  justify-content: space-between;
+  position: relative;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .hide-right {
-    transform: translateX(100%);
+  transform: translateX(100%);
 }
 
 .row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  display: flex;
+  align-items: flex-start;
+}
+
+.right {
+  display: flex;
+  align-items: flex-end;
 }
 
 .nav {
