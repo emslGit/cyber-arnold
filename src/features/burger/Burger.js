@@ -8,7 +8,7 @@ export const Burger = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className={"Burger col" + " " + (show ? '' : 'x-menu')} onClick={() => dispatch(toggle())}>
+    <div className={"Burger col" + " " + (show ? 'x-menu': '')} onClick={() => dispatch(toggle())}>
       <div></div>
       <div></div>
       <div></div>

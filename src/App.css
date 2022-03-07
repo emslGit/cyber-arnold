@@ -73,8 +73,8 @@ span.wrapper {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 2em 3em 3em 3em;
   border-radius: 2px;
-  width: 32%;
-  height: 28%;
+  width: 28em;
+  height: 17em;
   justify-content: space-between;
   position: relative;
 }
@@ -114,13 +114,37 @@ span.wrapper {
 }
 
 .nav {
-    position: fixed;
-    transition: 400ms;
-    right: 0;
-    top: 0;
-    width: 15%;
-    background-color: #111;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  z-index: 1;
+  position: fixed;
+  transition: 400ms;
+  right: 0;
+  top: 0;
+  width: 20%;
+  background-color: #111;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+  h1 {
+    font-size: 3.6em;
+  }
+  h2 {
+    font-size: 2.4em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+  span.wrapper {
+    height: 95%;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  span.wrapper h3 {
+    margin: 70px auto 0 auto;
+  }
+  .nav {
+    width: 100%;
+  }
 }

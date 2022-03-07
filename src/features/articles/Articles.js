@@ -15,7 +15,7 @@ export const Articles = () => {
   const [running, setRunning] = useState(false);
   const dispatch = useDispatch();
 
-  const handleAns = (ans) => {
+  const handleAns = (ans) => {  
     var __correct;
     var __word;
 

@@ -15,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <Burger />
-      <nav className={'nav col' + (show ? ' hide-right' :  '')}>
+      <nav className={'nav col' + (show ? '' : ' hide-right')}>
         <Link to="/">Start</Link>
         <Link to="/articles">Articles</Link>
         <Link to="/stats">Stats</Link>

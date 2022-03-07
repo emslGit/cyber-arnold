@@ -31,6 +31,10 @@ export const statsSlice = createSlice({
       state.incorrectWords = [];
     },
     resetStats: (state) => {
+      let csvContent = "data:text/csv;charset=utf-8," + Object.entries(state.incorrectWordStats).map(e => e.join(",")).join("\n");
+      var encodedUri = encodeURI(csvContent);
+      window.open(encodedUri);
+
       state.correctCount = 0;
       state.totalCount = 0;
       state.correctWords = [];
