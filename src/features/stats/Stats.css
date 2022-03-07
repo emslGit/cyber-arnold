@@ -13,3 +13,13 @@
 .Stats table td:first-of-type {
   width: 90%;
 }
+
+@media only screen and (max-width: 700px) {
+  .Stats table {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .Stats button {
+    align-self: center;
+  }
+}

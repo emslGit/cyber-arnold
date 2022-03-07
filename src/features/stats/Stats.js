@@ -17,9 +17,9 @@ export const Stats = () => {
   return (
     <div className='Stats bg'>
       <span className="col left wrapper">
-        <h2>
+        <h3>
           Stats
-        </h2>
+        </h3>
         <table>
           <tbody>
             <tr>

@@ -5,7 +5,7 @@ export const Start = () => {
     return (
         <div className='Start bg col'>
           <h1>Cyber Arnold</h1>
-          <h2>Learn to speak like Arnold in no time!</h2>
+          <h3>Learn to speak like Arnold in no time!</h3>
         </div>
     )
 }
