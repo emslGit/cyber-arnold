@@ -680,7 +680,6 @@ der,Schwung,drive
 der,Vorgänger,predecessor
 die,Zusammenstellung,compilation
 der,Schwerpunkt,emphasis
-der/([selten],das),realm
 die,Datei,file
 das,Vertrauen,trust
 die,Konkurrenz,competition
@@ -839,7 +838,7 @@ das,Motorrad,motorcycle
 die,Taten,actions
 der,Schütze,shooter
 das,Mitgefühl,compassion;
-das,Attentat,(attempted)
+das,Attentat,attempt
 der,Vorabend,evening
 der,Volksentscheid,referendum
 der,Bürgerkrieg,civil
