@@ -18,7 +18,7 @@ const initialState = {
 
 export const fetchWords = createAsyncThunk(
   'words/fetchWords',
-  async () => await fetch('/api')
+  async () => await fetch('/api/articles')
     .then(res => res.json())
     .then(csv => shuffleJSON(csv))
 )
