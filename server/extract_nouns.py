@@ -8,5 +8,4 @@ de = df.iloc[START:END, 0].str.split(' ', 2, expand=True)
 en = df.iloc[START:END, 1].str.split(' ', 1, expand=True)
 nouns = pd.concat([de.iloc[:, :2], en.iloc[:, 0]], axis=1)
 nouns.columns = ['art', 'de', 'en']
-nouns.to_csv('./public/words.csv', index = False)
-print(nouns)
+nouns.to_csv('./words.csv', index = False)

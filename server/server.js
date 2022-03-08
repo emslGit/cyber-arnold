@@ -1,20 +1,21 @@
 const express = require('express');
 const app = express();
-const csv = require('csv-parser');
-const fs = require('fs');
+const csv_file = require("fs").readFileSync("words.csv", "utf8")
 
-fs.createReadStream('data.csv')
-  .pipe(csv())
-  .on('data', (row) => {
-    console.log(row);
-  })
-  .on('end', () => {
-    console.log('CSV file successfully processed');
+const csvToJson = (csv) => {
+  const lines = csv.split('\r\n');
+  const keys = lines[0].split(',');
+  return lines.slice(1).map(line => {
+    return line.split(',').reduce((acc, cur, i) => {
+      const toAdd = {};
+      toAdd[keys[i]] = cur;
+      return { ...acc, ...toAdd };
+    }, {});
   });
+};
 
 app.get("/api", (req, res) => {
-  fetch('words.csv');
-  // res.json({"users": ["userOne", "userTwo", "userThree"]});
+  res.json(csvToJson(csv_file));
 })
 
 app.listen(5000, () => { console.log("Server started on port 5000") });

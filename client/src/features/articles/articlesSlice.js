@@ -9,11 +9,18 @@ const initialState = {
   total: 0,
 }
 
+// export const fetchWords = createAsyncThunk(
+//   'words/fetchWords',
+//   async () => await fetch('words.csv')
+//     .then(res => res.text())
+//     .then(csv => shuffleJSON(csvToJson(csv)))
+// )¨
+
 export const fetchWords = createAsyncThunk(
   'words/fetchWords',
-  async () => await fetch('words.csv')
-    .then(res => res.text())
-    .then(csv => shuffleJSON(csvToJson(csv)))
+  async () => await fetch('/api')
+    .then(res => res.json())
+    .then(csv => shuffleJSON(csv))
 )
 
 export const ArticlesSlice = createSlice({
