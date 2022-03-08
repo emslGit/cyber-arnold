@@ -1,19 +1,23 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "engines": {
+    "node": "17.x"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && run build",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "dev": "nodemon server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "fs": "^0.0.1-security"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
