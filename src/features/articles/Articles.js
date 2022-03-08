@@ -55,8 +55,8 @@ export const Articles = () => {
         <h3 style={{ color: prevWord?.de ? (latestAns ? 'lawngreen' : 'crimson') : 'white' }}>
           {prevWord?.de ? `${latestAns ? 'Correct' : 'Incorrect'} - ${prevWord.art} ${prevWord.de}` : "Articles"}
         </h3>
-        <h2>{running ? (translate ? word.en : word.de) : "Press to start"}</h2>
-        <span>{running ?
+        <h2>{(running && word?.de) ? (translate ? word.en : word.de) : "Press to start"}</h2>
+        <span>{(running && word?.de) ?
           <>
             <button className='btn-standard' onClick={() => handleAns('der')}>Der</button>
             <button className='btn-standard' onClick={() => handleAns('die')}>Die</button>
