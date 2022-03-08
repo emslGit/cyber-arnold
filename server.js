@@ -1,9 +1,7 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
 const app = express();
-
-var sample;
+const csv_str = require('./words.js')['csv_str'];
 
 const csvToJson = (csv) => {
   const lines = csv.split('\r\n');
@@ -19,19 +17,8 @@ const csvToJson = (csv) => {
 
 app.use(express.static(path.join(__dirname, '/client/build')));
 
-app.get('/api/sample', (req, res) => {
-  const sample = 'art,de,en\r\ndie,Sonne,sun\r\nder,Junge,boy\r\ndas,Gebäude,building'
-  res.json(csvToJson(sample));
-})
-
 app.get('/api/articles', (req, res) => {
-  try {
-    var csv_file = fs.readFileSync(path.join(__dirname, '/words.csv'), 'utf8');
-  } catch (err) {
-    console.error('ERR', err);
-    return;
-  }
-  res.json(csvToJson(csv_file));
+  res.json(csvToJson(csv_str));
 })
 
 app.get('*', (req, res) => {
