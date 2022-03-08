@@ -18,14 +18,14 @@ function App() {
     <BrowserRouter>
       <Burger />
       <nav className={'nav col' + (show ? '' : ' hide-right')}>
-        <Link onClick={() => dispatch(close())} to="/language/">Start</Link>
-        <Link onClick={() => dispatch(close())} to="/language/articles">Articles</Link>
-        <Link onClick={() => dispatch(close())} to="/language/stats">Stats</Link>
+        <Link onClick={() => dispatch(close())} to="/">Start</Link>
+        <Link onClick={() => dispatch(close())} to="/articles">Articles</Link>
+        <Link onClick={() => dispatch(close())} to="/stats">Stats</Link>
       </nav>
       <Routes>
-        <Route path="/language/" element={<Start />} />
-        <Route path="/language/articles" element={<Articles />} />
-        <Route path="/language/stats" element={<Stats />} />
+        <Route path="/" element={<Start />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/stats" element={<Stats />} />
       </Routes>
     </BrowserRouter>
   );
