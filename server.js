@@ -16,14 +16,41 @@ const pool = new Pool({
 });
 
 /* API REQUESTS */
-app.post('/api/stats', (req, res) => {
+app.post('/api/stats', async (req, res) => {
+  // var queryStr = "INSERT INTO stats VALUES "
+  
+  // Object.entries(stats).forEach(([k, v]) => {
+  //   str += `(${k}, ${v}),`;
+  // });
+  
+  // str = str.replace(/.$/,"");
+
+  // try {
+  //   const client = await pool.connect();
+  //   await client.query(queryStr);
+  //   client.release();
+  // } catch (err) {
+  //   console.error(err); 
+  //   res.send("Error " + err);
+  // }
+
   stats = req.body;
   res.json(req.body);
 })
 
-app.get('/api/stats'), async (req, res) => {
-  res.json(stats);
-}
+app.get('/api/stats', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM stats');
+    var json = result.rows;
+
+    res.json(json);
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
 
 app.get('/api/articles', async (req, res) => {
   const correctTreshold = 1;

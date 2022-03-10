@@ -9,6 +9,7 @@ https://cyber-arnold.herokuapp.com
 - Redux toolkit
 
 ### Backend:
-- Nodejs
+- PostgreSQL
 - Express
+- Nodejs
 - Heroku
