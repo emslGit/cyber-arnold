@@ -72,7 +72,7 @@ die,Umkehr,change
 die,Bedrohung,threat
 der,Verlust,loss
 die,Richtung,direction
-das,Geschehnis,event;
+das,Geschehnis,event
 die,Küste,coast
 die,Gebärde,gesture
 das,Fahrzeug,vehicle
@@ -153,13 +153,13 @@ die,Wahl,election
 der,Rat,council
 der,Rat,advice
 das,Guthaben,credit
-die,Absage,cancellation;
+die,Absage,cancellation
 die,Zugehörigkeit,membership
 der,Nachmittag,afternoon
 die,Notlage,emergency
 die,Absetzung,deposition
 die,Anlehnung,following
-der,Ausspruch,remark;
+der,Ausspruch,remark
 die,Einschüchterung,intimidation
 die,Versorgung,supply
 die,Leitung,cable
@@ -193,7 +193,7 @@ das,Schicksal,fate
 das,Urteil,verdict
 die,Gemeinsamkeit,similarity
 die,Anforderung,requirement
-die,Zulässigkeit,legality;
+die,Zulässigkeit,legality
 der,Zuschuss,grant
 die,Fernstraße,highway
 die,Armut,poverty
@@ -203,7 +203,7 @@ die,Instandhaltung,maintenance
 der,Zusatz,addition
 der,Betrag,amount
 die,Zuspitzung,escalation
-der,Nörgler,grumbler;
+der,Nörgler,grumbler
 das,Dutzend,dozen
 der,Vorbehalt,provision
 die,Angliederung,affiliation
@@ -227,7 +227,7 @@ die,Eigenständigkeit,independence
 der,Drang,urge
 das,Beisein,presence
 die,Übereinstimmung,accordance
-die,Einrichtung,installation;
+die,Einrichtung,installation
 die,Trümmer,debris
 die,Notenbank,central
 die,Offenbarung,revelation
@@ -240,7 +240,7 @@ der,Zocker,gambler
 die,Devisen,foreign
 der,Händler,dealer
 der,Auszug,summary
-der,Beleg,document;
+der,Beleg,document
 der,Ordner,folder
 der,Anschein,appearance
 die,Flut,flood
@@ -271,7 +271,7 @@ die,Steigerung,increase
 der,Sohn,son
 der,Sprössling,offspring
 die,Wende,turn
-der,Faden,string;
+der,Faden,string
 die,Bürgschaft,guarantee
 der,Ausgangspunkt,starting
 das,Aufsehen,sensation
@@ -281,7 +281,7 @@ der,Glücksritter,adventurer
 die,Schätzung,estimate
 die,Seltenheit,rarity
 die,Schwankung,fluctuation
-die,Seligkeit,happiness;
+die,Seligkeit,happiness
 der,Ausgang,outcome
 der,Fehlschlag,failure
 die,Bilanz,balance
@@ -365,7 +365,7 @@ der,Appell,appeal
 der,Schatten,shadow
 das,Anzeichen,sign
 die,Gewerkschaft,trade
-der,Vorwurf,reproach;
+der,Vorwurf,reproach
 der,Eindruck,impression
 die,Auswahl,selection
 die,Gesellschaft,society
@@ -384,9 +384,9 @@ die,Benachrichtigung,notification
 die,Begeisterung,enthusiasm
 der,Hafen,port
 das,Rohöl,crude
-der,Verbund,alliance;
+der,Verbund,alliance
 der,Anfang,beginning
-das,Votum,vote;
+das,Votum,vote
 die,Ebene,level
 die,Androhung,threat
 der,Stil,style
@@ -399,7 +399,7 @@ der,Bruchteil,fraction
 die,Messung,measurement
 der,Nachweis,proof
 der,Hinweis,clue
-das,Weltall,universe;
+das,Weltall,universe
 der,Handschuh,glove
 der,Samt,velvet
 der,Spielraum,scope
@@ -447,7 +447,7 @@ die,Entlassung,dismissal
 der,Tropfen,drop
 der,Stein,stone
 das,Ereignis,event
-der,Unterhändler,negotiator;
+der,Unterhändler,negotiator
 die,Abwicklung,completion
 der,Pfeiler,pillar
 das,Bankguthaben,bank
@@ -461,7 +461,7 @@ der,Einspruch,objection
 der,Verbrecher,criminal
 das,Flugblatt,leaflet
 das,Aufgebot,contingent
-der,Randalierer,rioter;
+der,Randalierer,rioter
 das,Anwesen,estate
 das,Becken,pool
 der,Ursprung,origin
@@ -512,7 +512,7 @@ der,Austragungsort,venue
 die,Vorsicht,caution
 das,Gedenken,commemoration
 das,Rathaus,town
-der,Umbau,modification;
+der,Umbau,modification
 die,Umbildung,reshuffle
 der,Amtsinhaber,incumbent
 die,Ausrichtung,orientation
@@ -529,7 +529,7 @@ der,Austritt,exit
 die,Veranstaltung,event
 die,Aufmerksamkeit,attention
 die,Schwelle,threshold
-der,Wirbel,vortex;
+der,Wirbel,vortex
 der,Routinier,veteran
 die,Mäßigung,moderation
 die,Regelung,control
@@ -545,7 +545,7 @@ die,Entschlossenheit,determination
 die,Verstärkung,reinforcement
 die,Stärke,force
 das,Geschütz,gun
-die,Verlagerung,transfer;
+die,Verlagerung,transfer
 der,Abzug,withdrawal
 der,Bericht,report
 die,Reihe,series
@@ -553,7 +553,6 @@ der,Anlass,reason
 die,Schießerei,shooting
 die,Entwaffnung,disarmament
 der,Entschluss,decision
-das/[österr.,veraltend,salary
 die,Bezüge,earnings
 die,Laufzeit,term
 der,Abschluss,completion
@@ -598,7 +597,7 @@ das,Wachstum,growth
 die,Teuerung,inflation
 der,Verfall,decline
 der,Ausblick,outlook
-das,Leihen,borrowing;
+das,Leihen,borrowing
 die,Flaute,recession
 die,Konjunktur,business
 die,Blase,bubble
@@ -671,7 +670,7 @@ die,Folter,torture
 der,Befehl,order
 die,Steuerung,control
 der,Angriff,attack
-der,Begriff,definition;
+der,Begriff,definition
 die,Jugendliche,teenagers
 die,Einsparung,saving
 der,Moderator,host
@@ -740,7 +739,7 @@ der,Berg,mountain
 die,Antwort,reply
 der,Verkäufer,seller
 der,Kaffee,coffee
-das,Vorhandensein,presence;
+das,Vorhandensein,presence
 die,Neige,decline
 das,Verschwinden,disappearance
 die,Geschwindigkeit,speed
@@ -781,7 +780,7 @@ die,Initiative,initiative
 die,Geschichte,history
 das,Maschinengewehr,machine-gun
 die,Aufwiegelung,sedition
-die,Wirren,confusion;
+die,Wirren,confusion
 die,Chance,opportunity
 die,Straffung,tightening
 das,Tor,gate
@@ -804,7 +803,7 @@ die,Verweigerung,refusal
 die,Gesetzgebung,legislation
 die,Geisel,hostage
 der,Zivilist,civilian
-die,Anzahl,quantity;
+die,Anzahl,quantity
 die,Schusswaffen,firearms
 das,Gewehr,gun
 die,Einflussnahme,influence
@@ -837,7 +836,7 @@ der,Geländewagen,all-terrain
 das,Motorrad,motorcycle
 die,Taten,actions
 der,Schütze,shooter
-das,Mitgefühl,compassion;
+das,Mitgefühl,compassion
 das,Attentat,attempt
 der,Vorabend,evening
 der,Volksentscheid,referendum
@@ -921,7 +920,7 @@ die,Lungenentzündung,pneumonia
 die,Kette,chain
 die,Geiselhaft,captivity
 der,Umstand,circumstance
-der,Entführer,kidnapper;
+der,Entführer,kidnapper
 die,Besteigung,ascent
 der,Verunglückte/ein,casualty
 die,Einheimische,locals
@@ -953,7 +952,7 @@ die,Segnung,blessing
 die,Speise,food
 der,Kuchen,cake
 das,Ei,egg
-das,Wohlergehen,prosperity;
+das,Wohlergehen,prosperity
 der,Herr,Lord
 die,Feierlichkeit,festivity
 der,Feiertag,holiday
@@ -996,7 +995,7 @@ die,Zuhörer,audience
 der,Aufseher,warden
 der,Schrank,cabinet
 die,Süßigkeit,candy
-die,Reste,remains;
+die,Reste,remains
 die,Startbahn,runway
 die,Schleife,loop
 die,Hektik,rush
@@ -1025,13 +1024,13 @@ die,Fortsetzung,continuation
 der,Verbündete/ein,ally
 der,Irrsinn,insanity
 die,Weigerung,refusal
-der,Schauplatz,location;
+der,Schauplatz,location
 das,Viertel,neighbourhood
 der,Auslöser,trigger
 der,Tänzer,dancer
 das,Einlenken,relenting
 der,Machthaber,ruler
-die,Übereinkunft,accordance;
+die,Übereinkunft,accordance
 der,Frieden,peace
 die,Ausreise,departure
 der,Einsturz,collapse
@@ -1043,7 +1042,7 @@ die,Willkür,arbitrariness
 die,Versöhnung,reconciliation
 die,Auszählung,count
 der,Film,movie
-das,Abzeichen,emblem;
+das,Abzeichen,emblem
 die,Briefmarke,stamp
 der,Park,park
 die,Annäherung,approach
@@ -1053,7 +1052,7 @@ der,Pfad,path
 das,Versprechen,promise
 die,Abschreckung,deterrence
 die,Pflege,care
-das,Tun,action;
+das,Tun,action
 die,Untätigkeit,inaction
 der,Tritt,step
 die,Tiefe,depth
@@ -1064,7 +1063,7 @@ das,Missverständnis,misunderstanding
 die,Faust,fist
 der,Druck,pressure
 das,Boot,boat
-das,Aufkommen,occurrence;
+das,Aufkommen,occurrence
 der,Bauer,peasant
 das,Geschwister,sibling
 die,Begabung,aptitude
@@ -1086,7 +1085,7 @@ der,Austausch,exchange
 der,Gesinnungsgenosse,like-minded
 die,Gesinnung,views
 der,Massenansturm,stampede
-der,Andrang,congestion;
+der,Andrang,congestion
 der,Missbrauch,abuse
 das,Siegel,seal
 die,Eroberung,conquest
@@ -1130,7 +1129,7 @@ die,Razzia,raid
 das,Gebot,bid
 die,Straßenbahn,tram
 der,Standort,site
-die,Beteiligung,cooperation;
+die,Beteiligung,cooperation
 der,Weltraum,space
 das,Aus,end
 die,Beförderung,promotion
@@ -1138,11 +1137,11 @@ die,Mühle,mill
 die,Nachricht,news
 der,Pfusch,botch
 der,Häftling,prisoner
-die,Panne,glitch;
+die,Panne,glitch
 die,Vene,vein
 die,Hinrichtung,execution
 die,Schulter,shoulder
-die,Herausgabe,surrender;
+die,Herausgabe,surrender
 der,Krankheitserreger,germ
 die,Erscheinung,phenomenon
 der,Wirkstoff,agent
@@ -1171,8 +1170,8 @@ die,Klage,complaint
 die,Öffnung,opening
 der,Erdrutsch,landslide
 der,Wendepunkt,watershed
-der,Bekannte/ein,acquaintance;
-die,Belastung,burden;
+der,Bekannte/ein,acquaintance
+die,Belastung,burden
 der,Rückschluss,conclusion
 der,Sonderfall,exception
 die,Einstellung,setting
@@ -1223,14 +1222,14 @@ die,Anlage,investment
 die,Bestimmung,regulation
 die,Angelegenheit,matter
 die,Verfügung,decree
-der,Säugling,infant;
+der,Säugling,infant
 die,Sterblichkeit,mortality
 der,Abbruch,breaking
 das,Vorhaben,plan
 die,Umsetzung,implementation
 der,Walfang,whaling
 der,Wal,whale
-der,Fang,capture;
+der,Fang,capture
 der,Befürworter,proponent
 der,Held,hero
 die,Menge,amount
@@ -1238,7 +1237,7 @@ das,Andenken,memory
 die,Behörde,authority
 die,Aussage,statement
 das,Amt,office
-das,Amtsenthebungsverfahren,impeachment;
+das,Amtsenthebungsverfahren,impeachment
 der,Beweis,evidence
 der,Ausschuss,committee
 der,Abgeordnete/ein,deputy
@@ -1251,7 +1250,7 @@ der,Sturz,fall
 der,Auftritt,appearance
 die,Kenntnis,knowledge
 die,Hoffnung,hope
-der,Träger,carrier;
+der,Träger,carrier
 die,Vergangenheit,past
 die,Riege,team
 die,Ordnung,order
@@ -1270,7 +1269,7 @@ der,Ansatz,approach
 die,Vorfahren,ancestors
 der,Freispruch,acquittal
 das,Verfahren,procedure
-die,Verkündung,announcement;
+die,Verkündung,announcement
 das,Fernsehen,TV
 der,Schluss,closing
 der,Strich,line
@@ -1285,7 +1284,7 @@ das,Verhältnis,proportion
 der,Rausch,intoxication
 die,Übersicht,survey
 der,Verdacht,suspicion
-der,Vorgang,action;
+der,Vorgang,action
 der,Gang,aisle
 der,Gang,walk
 der,Jäger,hunter

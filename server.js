@@ -5,7 +5,7 @@ const csvStr = require('./words.js')['csv_str'];
 const assert = require('assert');
 const bodyParser = require('body-parser');
 // const mongo = require('mongodb');
-// const url = 'mongodb://localhost:'
+// const url = 'mongodb://localhost:27017 '
 
 var stats = {};
 
@@ -40,7 +40,7 @@ app.get('/api/stats', (req, res) => {
 })
 
 app.get('/api/articles', (req, res) => {
-  var json = csvToJson(csvStr);
+  var json = csvToJson(sample);
   const correctTreshold = 1;
 
   if (stats?.wordStats) {
