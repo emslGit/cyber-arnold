@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { csvToJson, shuffleJSON } from '../../helpers/helpers'
+import { shuffleJSON } from '../../helpers/helpers'
 
 const initialState = {
   words: [],
@@ -9,16 +9,9 @@ const initialState = {
   total: 0,
 }
 
-// export const fetchWords = createAsyncThunk(
-//   'words/fetchWords',
-//   async () => await fetch('words.csv')
-//     .then(res => res.text())
-//     .then(csv => shuffleJSON(csvToJson(csv)))
-// )¨
-
-export const fetchWords = createAsyncThunk(
-  'words/fetchWords',
-  async () => await fetch('/api/articles')
+export const getArticles = createAsyncThunk(
+  'articles/getArticles',
+  async () => await fetch('/api/articles', { method: 'GET' })
     .then(res => res.json())
     .then(csv => shuffleJSON(csv))
 )
@@ -34,9 +27,6 @@ export const ArticlesSlice = createSlice({
       state.prevWord = state.word;
       state.word = state.words.pop();
     },
-    incTotal: (state) => {
-      state.total += 1;
-    },
     setLatestAns: (state, action) => {
       state.latestAns = action.payload;
     },
@@ -45,23 +35,23 @@ export const ArticlesSlice = createSlice({
       state.word = null;
       state.prevWord = null;
       state.latestAns = null;
-      state.total = 0;
     }
   },
   extraReducers: {
-    [fetchWords.pending]: (state) => {
+    [getArticles.pending]: (state) => {
       state.status = 'loading';
     },
-    [fetchWords.fulfilled]: (state, action) => {
+    [getArticles.fulfilled]: (state, action) => {
       state.status = 'success';
       state.words = action.payload;
+      state.word = state.words.pop();
     },
-    [fetchWords.rejected]: (state) => {
+    [getArticles.rejected]: (state) => {
       state.status = 'failed';
     },
   }
 })
 
-export const { setWords, nextWord, incTotal, setLatestAns, resetArticles } = ArticlesSlice.actions
+export const { setWords, nextWord, setLatestAns, resetArticles } = ArticlesSlice.actions
 
 export default ArticlesSlice.reducer

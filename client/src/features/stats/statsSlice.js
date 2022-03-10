@@ -1,48 +1,57 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { shuffleJSON } from '../../helpers/helpers'
 
 const initialState = {
-  correctWords: [],
-  incorrectWords: [],
-  incorrectWordStats: {},
+  wordStats: {},
   correctCount: 0,
   totalCount: 0,
 }
+
+export const getStats = createAsyncThunk(
+  'stats/getStats',
+  async () => await fetch('/api/stats', { method: 'GET' })
+    .then(res => res.json())
+    .then(csv => shuffleJSON(csv))
+)
+
+export const postStats = createAsyncThunk(
+  'stats/postStats',
+  async (stats) => await fetch('/api/stats', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      wordStats: stats['wordStats'],
+      correctCount: stats['correctCount'],
+      totalCount: stats['totalCount']
+    })
+  })
+)
 
 export const statsSlice = createSlice({
   name: 'stats',
   initialState,
   reducers: {
     addCorrect: (state, action) => {
-      if (!state.correctWords.includes(action.payload)) {
-        state.correctWords.push(action.payload);
-      }
+      state.wordStats[action.payload.de] = (state.wordStats[action.payload.de] || 0) + 1;
       state.correctCount += 1;
       state.totalCount += 1;
     },
     addIncorrect: (state, action) => {
-      if (!state.incorrectWords.includes(action.payload)) {
-        state.incorrectWords.push(action.payload);
-      }
-
-      state.incorrectWordStats[action.payload.de] = (state.incorrectWordStats[action.payload.de] || 0) + 1;
+      state.wordStats[action.payload.de] = (state.wordStats[action.payload.de] || 0) - 1;
       state.totalCount += 1;
     },
-    resetIncorrect: (state) => {
-      state.incorrectWords = [];
-    },
     resetStats: (state) => {
-      let csvContent = "data:text/csv;charset=utf-8," + Object.entries(state.incorrectWordStats).map(e => e.join(",")).join("\n");
-      var encodedUri = encodeURI(csvContent);
-      window.open(encodedUri);
-
       state.correctCount = 0;
       state.totalCount = 0;
-      state.correctWords = [];
-      state.incorrectWords = [];
+      state.wordStats = {};
+      
+      postStats({});
     }
   },
 })
 
-export const { addCorrect, addIncorrect, resetIncorrect, resetStats } = statsSlice.actions
+export const { addCorrect, addIncorrect, resetStats } = statsSlice.actions
 
 export default statsSlice.reducer
