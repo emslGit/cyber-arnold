@@ -21,6 +21,10 @@ app.post('/api/stats', (req, res) => {
   res.json(req.body);
 })
 
+app.get('/api/stats'), async (req, res) => {
+  res.json(stats);
+}
+
 app.get('/api/articles', async (req, res) => {
   const correctTreshold = 1;
 
