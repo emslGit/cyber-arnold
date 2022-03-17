@@ -11,7 +11,6 @@ export const Stats = () => {
   const resetAll = () => {
     dispatch(resetStats());
     dispatch(resetArticles());
-    dispatch(postStats({}));
   }
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getArticles, nextWord, setLatestAns } from './articlesSlice'
-import { postStats, addCorrect, addIncorrect } from '../stats/statsSlice'
+import { getStats, postStats, addCorrect, addIncorrect } from '../stats/statsSlice'
 import './Articles.css';
 
 export const Articles = () => {
@@ -13,7 +13,6 @@ export const Articles = () => {
   
   useEffect(() => {
     if (articles.word === undefined) {
-      dispatch(postStats(stats));
       dispatch(getArticles());
     }
   }, [articles.word])
@@ -25,8 +24,10 @@ export const Articles = () => {
 
     if (__correct) {
       dispatch(addCorrect(articles.word));
+      dispatch(postStats(stats));
     } else {
       dispatch(addIncorrect(articles.word));
+      dispatch(postStats(stats));
     }
 
     dispatch(setLatestAns(__correct));
@@ -34,6 +35,7 @@ export const Articles = () => {
   }
 
   const handleStart = async () => {
+    await dispatch(getStats());
     await dispatch(getArticles());
     setRunning(true);
   }

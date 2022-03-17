@@ -3,7 +3,12 @@ const path = require('path');
 const app = express();
 const { Pool } = require('pg');
 
+var bodyParser = require('body-parser');
+const { query } = require('express');
+
 var stats = {};
+
+app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, '/client/build')));
 
@@ -16,26 +21,42 @@ const pool = new Pool({
 });
 
 /* API REQUESTS */
+app.delete('/api/stats', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    await client.query('TRUNCATE TABLE stats');
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
+
 app.post('/api/stats', async (req, res) => {
-  // var queryStr = "INSERT INTO stats VALUES "
-  
-  // Object.entries(stats).forEach(([k, v]) => {
-  //   str += `(${k}, ${v}),`;
-  // });
-  
-  // str = str.replace(/.$/,"");
 
-  // try {
-  //   const client = await pool.connect();
-  //   await client.query(queryStr);
-  //   client.release();
-  // } catch (err) {
-  //   console.error(err); 
-  //   res.send("Error " + err);
-  // }
+  var queryStr = "";
+  const _stats = Object.entries(req.body.wordStats || {});
 
-  stats = req.body;
-  res.json(req.body);
+  if (_stats.length) {
+    _stats.forEach(([k, v]) => {
+      stats[k] = stats[k] || v;
+    });
+
+    Object.entries(stats).forEach(([k, v]) => {
+      queryStr += `('${k}', ${v}),`;
+    });
+
+    queryStr = 'TRUNCATE TABLE stats; INSERT INTO stats VALUES ' + queryStr.replace(/.$/, "") + ';';
+
+    try {
+      const client = await pool.connect();
+      await client.query(queryStr);
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  }
 })
 
 app.get('/api/stats', async (req, res) => {
