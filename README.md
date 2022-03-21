@@ -13,3 +13,7 @@ https://cyber-arnold.herokuapp.com
 - Express
 - Nodejs
 - Heroku
+
+### Copying to CSV
+heroku psql -a cyber-arnold
+\copy nouns FROM file.csv WITH (FORMAT CSV, ENCODING 'UTF8');
