@@ -3,10 +3,9 @@ const path = require('path');
 const app = express();
 const { Pool } = require('pg');
 
-var bodyParser = require('body-parser');
-const { query } = require('express');
+let stats = {};
 
-var stats = {};
+let bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
@@ -34,7 +33,7 @@ app.delete('/api/stats', async (req, res) => {
 
 app.post('/api/stats', async (req, res) => {
 
-  var queryStr = "";
+  let queryStr = "";
   const _stats = Object.entries(req.body.wordStats || {});
 
   if (_stats.length) {
@@ -63,7 +62,7 @@ app.get('/api/stats', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM stats');
-    var json = result.rows;
+    let json = result.rows;
 
     res.json(json);
     client.release();
@@ -79,7 +78,7 @@ app.get('/api/articles', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM nouns');
-    var json = result.rows;
+    let json = result.rows;
 
     if (stats?.wordStats) {
       excludeWords = Object.entries(stats.wordStats).filter(entry => entry[1] >= correctTreshold).map(entry => entry[0]);
@@ -105,3 +104,4 @@ const port = process.env.PORT || 5000;
 app.listen(port);
 
 console.log(`Server started on port ${port}`);
+console.log(process.env.DATABASE_URL);
