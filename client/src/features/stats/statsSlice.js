@@ -1,9 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { useState } from 'react'
-import { shuffleJSON } from '../../helpers/helpers'
 
 const initialState = {
-  wordStats: {},
   correctCount: 0,
   totalCount: 0,
 }
@@ -12,7 +9,6 @@ export const getStats = createAsyncThunk(
   'stats/getStats',
   async () => await fetch('/api/stats', { method: 'GET' })
     .then(res => res.json())
-    .then(csv => shuffleJSON(csv))
 )
 
 export const resetStats = createAsyncThunk(
@@ -22,30 +18,26 @@ export const resetStats = createAsyncThunk(
 
 export const postStats = createAsyncThunk(
   'stats/postStats',
-  async (stats) => await fetch('/api/stats', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      wordStats: stats['wordStats'],
-      correctCount: stats['correctCount'],
-      totalCount: stats['totalCount']
+  async (word) => {
+    await fetch('/api/stats', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(word)
     })
-  })
+  }
 )
 
 export const statsSlice = createSlice({
   name: 'stats',
   initialState,
   reducers: {
-    addCorrect: (state, action) => {
-      state.wordStats[action.payload.de] = (state.wordStats[action.payload.de] || 0) + 1;
+    addCorrect: (state) => {
       state.correctCount += 1;
       state.totalCount += 1;
     },
-    addIncorrect: (state, action) => {
-      state.wordStats[action.payload.de] = (state.wordStats[action.payload.de] || 0) - 1;
+    addIncorrect: (state) => {
       state.totalCount += 1;
     }
   },
@@ -54,11 +46,21 @@ export const statsSlice = createSlice({
       state.status = 'success';
       state.correctCount = 0;
       state.totalCount = 0;
-      state.wordStats = {};
     },
-    [getStats.fulfilled]: (state, action) => {
+    [resetStats.rejected]: (state) => {
+      state.status = 'failed';
+    },
+    [postStats.fulfilled]: (state) => {
       state.status = 'success';
-      (action.payload).forEach(o => state.wordStats[o.noun] = o.score);
+    },
+    [postStats.rejected]: (state) => {
+      state.status = 'failed';
+    },
+    [getStats.fulfilled]: (state) => {
+      state.status = 'success';
+    },
+    [getStats.rejected]: (state) => {
+      state.status = 'failed';
     },
   }
 })

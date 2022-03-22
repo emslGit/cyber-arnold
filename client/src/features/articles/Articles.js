@@ -1,33 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getArticles, nextWord, setLatestAns } from './articlesSlice'
 import { getStats, postStats, addCorrect, addIncorrect } from '../stats/statsSlice'
 import './Articles.css';
 
 export const Articles = () => {
-  const stats = useSelector((state) => state.stats);
   const articles = useSelector((state) => state.articles);
   const [translate, setTranslate] = useState(false);
   const [running, setRunning] = useState(false);
   const dispatch = useDispatch();
-  
-  useEffect(() => {
-    if (articles.word === undefined) {
-      dispatch(getArticles());
-    }
-  }, [articles.word])
 
   const handleAns = (ans) => {
-    var __correct
+    let __correct;
 
     __correct = (ans === articles.word.art);
 
     if (__correct) {
       dispatch(addCorrect(articles.word));
-      dispatch(postStats(stats));
     } else {
       dispatch(addIncorrect(articles.word));
-      dispatch(postStats(stats));
+      dispatch(postStats(articles.word));
     }
 
     dispatch(setLatestAns(__correct));

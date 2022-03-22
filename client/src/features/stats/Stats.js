@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { postStats, resetStats } from './statsSlice'
+import { resetStats } from './statsSlice'
 import { resetArticles } from '../articles/articlesSlice'
 import './Stats.css';
 

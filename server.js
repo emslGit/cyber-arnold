@@ -3,8 +3,6 @@ const path = require('path');
 const app = express();
 const { Pool } = require('pg');
 
-let stats = {};
-
 let bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -23,7 +21,9 @@ const pool = new Pool({
 app.delete('/api/stats', async (req, res) => {
   try {
     const client = await pool.connect();
-    await client.query('TRUNCATE TABLE stats');
+    const result = await client.query('TRUNCATE TABLE stats;');
+
+    res.send("Success");
     client.release();
   } catch (err) {
     console.error(err);
@@ -32,29 +32,17 @@ app.delete('/api/stats', async (req, res) => {
 })
 
 app.post('/api/stats', async (req, res) => {
+  let word = req.body;
 
-  let queryStr = "";
-  const _stats = Object.entries(req.body.wordStats || {});
+  try {
+    const client = await pool.connect();
+    const result = await client.query(`INSERT INTO stats (noun) VALUES ('${word.de}');`);
 
-  if (_stats.length) {
-    _stats.forEach(([k, v]) => {
-      stats[k] = stats[k] || v;
-    });
-
-    Object.entries(stats).forEach(([k, v]) => {
-      queryStr += `('${k}', ${v}),`;
-    });
-
-    queryStr = 'TRUNCATE TABLE stats; INSERT INTO stats VALUES ' + queryStr.replace(/.$/, "") + ';';
-
-    try {
-      const client = await pool.connect();
-      await client.query(queryStr);
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
+    res.send("Success");
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
   }
 })
 
@@ -62,9 +50,8 @@ app.get('/api/stats', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM stats');
-    let json = result.rows;
 
-    res.json(json);
+    res.send(result.rows.map(o => o.noun));
     client.release();
   } catch (err) {
     console.error(err);
@@ -73,19 +60,13 @@ app.get('/api/stats', async (req, res) => {
 })
 
 app.get('/api/articles', async (req, res) => {
-  const correctTreshold = 1;
-
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM sample');
-    let json = result.rows;
+    const resultArticles = await client.query('SELECT * FROM nouns');
+    const resultStats = await client.query('SELECT * FROM stats');
 
-    if (stats?.wordStats) {
-      excludeWords = Object.entries(stats.wordStats).filter(entry => entry[1] >= correctTreshold).map(entry => entry[0]);
-      json = json.filter(word => {
-        return !excludeWords.includes(word.de);
-      });
-    }
+    const resultStatsList = resultStats.rows.map(o => o.noun) || [];
+    let json = resultArticles.rows.filter(o => !resultStatsList.includes(o.de));
 
     res.json(json);
     client.release();
@@ -104,4 +85,3 @@ const port = process.env.PORT || 5000;
 app.listen(port);
 
 console.log(`Server started on port ${port}`);
-console.log(process.env.DATABASE_URL);
