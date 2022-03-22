@@ -77,7 +77,7 @@ app.get('/api/articles', async (req, res) => {
 
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM nouns');
+    const result = await client.query('SELECT * FROM sample');
     let json = result.rows;
 
     if (stats?.wordStats) {
