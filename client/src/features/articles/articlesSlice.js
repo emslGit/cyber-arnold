@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { shuffleJSON } from '../../helpers/helpers'
+import axios from 'axios'
 
 const initialState = {
   words: [],
@@ -11,9 +12,7 @@ const initialState = {
 
 export const getArticles = createAsyncThunk(
   'articles/getArticles',
-  async () => await fetch('/api/articles', { method: 'GET' })
-    .then(res => res.json())
-    .then(csv => shuffleJSON(csv))
+  async () => await axios.get('/api/articles').then(res => shuffleJSON(res.data))
 )
 
 export const ArticlesSlice = createSlice({

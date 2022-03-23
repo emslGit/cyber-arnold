@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getArticles, nextWord, setLatestAns } from './articlesSlice'
-import { getStats, postStats, addCorrect, addIncorrect } from '../stats/statsSlice'
+import { postStats, addCorrect, addIncorrect } from '../stats/statsSlice'
 import './Articles.css';
 
 export const Articles = () => {
@@ -27,7 +27,6 @@ export const Articles = () => {
   }
 
   const handleStart = async () => {
-    await dispatch(getStats());
     await dispatch(getArticles());
     setRunning(true);
   }

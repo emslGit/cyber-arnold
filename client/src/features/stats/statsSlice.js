@@ -1,32 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 const initialState = {
   correctCount: 0,
   totalCount: 0,
 }
 
-export const getStats = createAsyncThunk(
-  'stats/getStats',
-  async () => await fetch('/api/stats', { method: 'GET' })
-    .then(res => res.json())
-)
-
 export const resetStats = createAsyncThunk(
   'stats/resetStats',
-  async () => await fetch('/api/stats', { method: 'DELETE' })
+  async () => await axios.delete('/api/stats')
 )
 
 export const postStats = createAsyncThunk(
   'stats/postStats',
-  async (word) => {
-    await fetch('/api/stats', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(word)
-    })
-  }
+  async (word) => await axios.post('/api/stats', { de: word.de })
 )
 
 export const statsSlice = createSlice({
@@ -42,6 +29,9 @@ export const statsSlice = createSlice({
     }
   },
   extraReducers: {
+    [resetStats.pending]: (state) => {
+      state.status = 'loading';
+    },
     [resetStats.fulfilled]: (state) => {
       state.status = 'success';
       state.correctCount = 0;
@@ -50,16 +40,13 @@ export const statsSlice = createSlice({
     [resetStats.rejected]: (state) => {
       state.status = 'failed';
     },
+    [postStats.pending]: (state) => {
+      state.status = 'loading';
+    },
     [postStats.fulfilled]: (state) => {
       state.status = 'success';
     },
     [postStats.rejected]: (state) => {
-      state.status = 'failed';
-    },
-    [getStats.fulfilled]: (state) => {
-      state.status = 'success';
-    },
-    [getStats.rejected]: (state) => {
       state.status = 'failed';
     },
   }
